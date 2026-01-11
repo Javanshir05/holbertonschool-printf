@@ -1,0 +1,73 @@
+.TH _PRINTF 3 "January 2026" "Holberton School" "Library Functions Manual"
+.SH NAME
+_printf \- produces output according to a format
+.SH SYNOPSIS
+.B #include "main.h"
+.PP
+.BI "int _printf(const char *" format ", ...);"
+.SH DESCRIPTION
+The
+.B _printf()
+function produces output according to a format string and writes the output
+to standard output.
+.PP
+The
+.I format
+string is composed of zero or more directives. This project version of
+.B _printf()
+supports only the following conversion specifiers:
+.TP
+.B %c
+Prints a single character.
+.TP
+.B %s
+Prints a string. If the argument is
+.BR NULL ,
+the string
+.B (null)
+is printed.
+.TP
+.B %%
+Prints a literal percent sign.
+.TP
+.B %d
+Prints a signed decimal integer.
+.TP
+.B %i
+Prints a signed decimal integer.
+.PP
+Any other character following a
+.B %
+is not treated as a valid conversion specifier; this implementation prints
+the
+.B %
+character followed by that character.
+.PP
+This implementation does not support flag characters, field width, precision,
+or length modifiers.
+.SH RETURN VALUE
+On success,
+.B _printf()
+returns the number of characters printed (excluding the terminating null byte).
+If
+.I format
+is
+.BR NULL ,
+or if
+.I format
+ends with a single
+.B %
+character, the function returns
+.BR -1 .
+.SH EXAMPLES
+.nf
+_printf("Hello %s\\n", "world");
+_printf("Char: %c\\n", 'A');
+_printf("Percent: %%\\n");
+_printf("Number: %d\\n", 1024);
+_printf("Negative: %i\\n", -98);
+.fi
+.SH SEE ALSO
+.BR printf (3)
+.SH AUTHOR
+Holberton School students.
